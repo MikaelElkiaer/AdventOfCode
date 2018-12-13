@@ -32,3 +32,12 @@ let ``Day1 - Example 4`` () =
     let actual =
         adjust 0 [-1;-2;-3]
     Assert.Equal(expected, actual)
+
+[<Fact>]
+let ``Day1 - input`` () =
+    let expected = 0
+    let actual =
+        Path.Combine(Environment.CurrentDirectory, "inputs.txt")
+        |> parseFile
+        |> adjust 0
+    Assert.Equal(expected, actual)
