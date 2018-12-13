@@ -35,7 +35,7 @@ let ``Day1 - Example 4`` () =
 
 [<Fact>]
 let ``Day1 - input`` () =
-    let expected = 0
+    let expected = 580
     let actual =
         Path.Combine(Environment.CurrentDirectory, "inputs.txt")
         |> parseFile
