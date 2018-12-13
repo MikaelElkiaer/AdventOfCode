@@ -41,3 +41,38 @@ let ``Day1 - input`` () =
         |> parseFile
         |> adjust 0
     Assert.Equal(expected, actual)
+
+[<Fact>]
+let ``Day1 Part2 - Example 1`` () =
+    let expected = 2
+    let actual =
+        findFirstDuplicate 0 [1;-2;3;1;1;-2]
+    Assert.Equal(expected, actual)    
+
+[<Fact>]
+let ``Day1 Part2 - Example 2`` () =
+    let expected = 0
+    let actual =
+        findFirstDuplicate 0 [1;-1]
+    Assert.Equal(expected, actual)    
+
+[<Fact>]
+let ``Day1 Part2 - Example 3`` () =
+    let expected = 10
+    let actual =
+        findFirstDuplicate 0 [3;3;4;-2;-4]
+    Assert.Equal(expected, actual)    
+
+[<Fact>]
+let ``Day1 Part2 - Example 4`` () =
+    let expected = 5
+    let actual =
+        findFirstDuplicate 0 [-6;3;8;5;-6]
+    Assert.Equal(expected, actual)
+
+[<Fact>]
+let ``Day1 Part2 - Example 5`` () =
+    let expected = 14
+    let actual =
+        findFirstDuplicate 0 [7;7;-2;-7;-4]
+    Assert.Equal(expected, actual)
