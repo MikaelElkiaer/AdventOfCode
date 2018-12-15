@@ -76,3 +76,12 @@ let ``Day1 Part2 - Example 5`` () =
     let actual =
         findFirstDuplicate 0 [7;7;-2;-7;-4]
     Assert.Equal(expected, actual)
+
+[<Fact>]
+let ``Day1 Part2 - Input`` () =
+    let expected = 81972
+    let actual =
+        Path.Combine(Environment.CurrentDirectory, "inputs.txt")
+        |> parseFile
+        |> findFirstDuplicate 0
+    Assert.Equal(expected, actual)
