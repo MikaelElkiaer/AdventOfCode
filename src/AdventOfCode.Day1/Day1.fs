@@ -9,13 +9,11 @@ module Day1 =
         | [] -> frequency
 
     let findFirstDuplicate frequency changes =
-        let infiniteChanges =
-            Seq.initInfinite (fun i -> List.item (i % List.length changes) changes)
-        let rec findFirstDuplicateRec frequency changes seen =
+        let rec findFirstDuplicateRec frequency i seen =
             if Set.contains frequency seen
             then frequency
-            else findFirstDuplicateRec (frequency + Seq.head changes) (Seq.tail changes) (Set.add frequency seen)
-        findFirstDuplicateRec frequency infiniteChanges Set.empty
+            else findFirstDuplicateRec (frequency + List.item (i % List.length changes) changes) (i + 1) (Set.add frequency seen)
+        findFirstDuplicateRec frequency 0 Set.empty
 
     let parseFile filePath =
         System.IO.File.ReadAllLines filePath
