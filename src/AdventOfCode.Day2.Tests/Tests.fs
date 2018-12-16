@@ -19,4 +19,20 @@ let ``Day 2 - Input`` () =
         Path.Combine(Environment.CurrentDirectory, "input.txt")
         |> parseFile
         |> makeChecksum
+    Assert.Equal(expected, actual)
+
+[<Fact>]
+let ``Day 2 Part 2 - Example`` () =
+    let expected = "fgij"
+    let actual =
+        findCommonLetters ["abcde";"fghij";"klmno";"pqrst";"fguij";"axcye";"wvxyz"]
     Assert.Equal(expected, actual)    
+
+[<Fact>]
+let ``Day 2 Part 2 - Input`` () =
+    let expected = "nmgyjkpruszlbaqwficavxneo"
+    let actual =
+        Path.Combine(Environment.CurrentDirectory, "input.txt")
+        |> parseFile
+        |> findCommonLetters
+    Assert.Equal(expected, actual)
