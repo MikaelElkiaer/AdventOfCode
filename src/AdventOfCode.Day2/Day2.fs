@@ -30,18 +30,14 @@ module Day2 =
             Seq.zip s1cs diffs
             |> Seq.filter (fun (x, y) -> y = 0)
             |> Seq.map (fun (x, y) -> x)
-            |> Some
+            |> Some     
 
     let findCommonLetters strings =
-        let rec findCommonLettersRec current remaining =
-            let r = extractCommonLetters (Seq.head current) (Seq.head remaining)
-            match r with
-            | Some x -> x
-            | None ->
-                match remaining with
-                | [_] -> findCommonLettersRec (Seq.tail current) strings
-                | _::xs -> findCommonLettersRec current xs
-        findCommonLettersRec strings strings
+        [for a in strings do
+            for b in strings do
+                yield extractCommonLetters a b]
+        |> Seq.find (fun x -> x <> None)
+        |> Option.get
         |> Array.ofSeq
         |> System.String
 
